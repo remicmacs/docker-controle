@@ -23,4 +23,4 @@ ADD . /project/
 EXPOSE 1234
 
 # On lance le serveur quand on démarre le conteneur
-CMD node app.js
+CMD ["node", "app.js"]
