@@ -15,7 +15,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: Building images
-          command: docker build --name $IMAGE_NAME -t $IMAGE_NAME:latest -t $IMAGE_NAME:$CIRCLE_BUILD_NUM .
+          command: docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:$CIRCLE_BUILD_NUM ./project
       - run:
           name: Archive Docker images
           command: docker save -o image.tar $IMAGE_NAME
