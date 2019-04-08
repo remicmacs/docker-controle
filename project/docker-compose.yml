@@ -17,4 +17,4 @@ services:
     ports:
       - 80:1234
     environment:
-      - MONGODB_URI="mongodb://db:27017/IsenTP"
+      - MONGODB_URI=mongodb://db:27017/IsenTP
