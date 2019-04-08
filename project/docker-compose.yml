@@ -1,0 +1,24 @@
+version: '3'
+
+volumes:
+  mongodb_volume: {}
+
+services:
+  db:
+    name: "mongo"
+    image: mongo:latest
+    network_mode: "host"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME:ISEN
+      MONGO_INITDB_ROOT_PASSWORD:<ACTUAL_PASSWORD_HERE>
+      MONGODB_DATABASE:IsenTP
+    volumes: 
+      - mongodb_volume:/data/db
+  node:
+    name: "hobodoth"
+    depends_on: db
+    image: rodolpheh/hobodoth:latest
+    links: 
+      - "db:db"
+    ports:
+      - 80:1234
